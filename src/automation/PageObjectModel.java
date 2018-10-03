@@ -76,7 +76,7 @@ import org.omg.CORBA_2_3.portable.InputStream;
     	 
     	
  		
- 	// Import excel sheet.
+    	 // Import excel sheet.
  		 File src = new File("C:\\Users\\anhtl\\Desktop\\TestData.xlsx");
  		 
  		 // Load the file.
@@ -101,17 +101,12 @@ import org.omg.CORBA_2_3.portable.InputStream;
  				
  				
  			    SearchPage.Btn_Search(driver).sendKeys(Keys.ENTER);
- 			  //  Assert.assertEquals("Page Object Model (POM) & Page Factory in Selenium: Complete Tutorial", SearchPage.Verify_Tiltle(driver));    
+ 			    Assert.assertEquals("Page Object Model (POM) & Page Factory in Selenium: Complete Tutorial", SearchPage.Verify_Tiltle(driver));    
  			}
     	 
 
-     /*SearchPage.Search_Input(driver).sendKeys("Selenium");
-     SearchPage.Btn_Search(driver).sendKeys(Keys.ENTER);*/
-     
- 
 
-/*     Assert.assertEquals("Enabling Open Innovation & Collaboration | The Eclipse Foundation", SearchPage.Verify_Tiltle(driver));    
-*/
+
      System.out.println("quá trình xong");
 
      driver.quit();
