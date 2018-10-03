@@ -46,16 +46,9 @@ import org.omg.CORBA_2_3.portable.InputStream;
  	 static XSSFSheet sheet;
  	static XSSFCell cell;
      
-     
-     public void BeforeTest(){ 
-    	//Setup
-    	 
-    	     }	
 
      public static void main(String[] args) throws InterruptedException, IOException {
     	 
-    	 System.setProperty("webdriver.chrome.driver","F:\\Webdriver\\chromedriver_win32\\chromedriver.exe");
-    	 System.setProperty("webdriver.gecko.driver","C:\\Users\\anhtl\\Downloads\\geckodriver-v0.22.0-win64\\geckodriver.exe");
 
     	     WebDriver driver = new ChromeDriver();
     	     driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS); //Wait time
@@ -63,7 +56,7 @@ import org.omg.CORBA_2_3.portable.InputStream;
     	     driver.manage().window().maximize();
     	     driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS); //Wait time
     	 
-    	 //Start
+    	 //Start Login
     	 /*SearchPage.Btn_SignIn(driver).click();
          Thread.sleep(2000);
          LoginPage.txtbx_EmailOrPhone(driver).sendKeys("mindy.kenz@gmail.com");
@@ -75,18 +68,15 @@ import org.omg.CORBA_2_3.portable.InputStream;
     	
     	 
     	
- 		
+ // Phan nay LOI		
     	 // Import excel sheet.
- 		 File src = new File("C:\\Users\\anhtl\\Desktop\\TestData.xlsx");
- 		 
+ 		 File src = new File("C:\\Users\\anhtl\\Desktop\\TestData.xlsx"); //thay doi path
  		 // Load the file.
  		 FileInputStream finput = new FileInputStream(src);
- 		 
  		 // Load he workbook.
- 		workbook = new XSSFWorkbook(finput);
- 		 
+ 		workbook = new XSSFWorkbook(finput);	 
  	     // Load the sheet in which data is stored.
- 		 sheet= workbook.getSheetAt(0);
+ 		 sheet= workbook.getSheetAt(0);   
  				
  	     System.out.println("quá trình xong");
 
@@ -95,10 +85,8 @@ import org.omg.CORBA_2_3.portable.InputStream;
  				 
  				// Import data for keyword
  				cell = sheet.getRow(i).getCell(1);
- 				XSSFRichTextString key = cell.getRichStringCellValue();
- 				SearchPage.Search_Input(driver).sendKeys(cell.toString());
- 				
- 				
+ 				XSSFRichTextString key = cell.getRichStringCellValue(); //lay data
+ 				SearchPage.Search_Input(driver).sendKeys(cell.toString());// ghi data vao tim kiem
  				
  			    SearchPage.Btn_Search(driver).sendKeys(Keys.ENTER);
  			    Assert.assertEquals("Page Object Model (POM) & Page Factory in Selenium: Complete Tutorial", SearchPage.Verify_Tiltle(driver));    
